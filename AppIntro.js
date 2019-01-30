@@ -182,10 +182,6 @@ class AppIntro extends Component {
         inputRange: [statRange, endRange], outputRange: [startOpacity, endOpacity],
       }),
     }];
-    if(index == 1) {
-      console.warn("inputRange: ", statRange + " " + endRange);
-      console.warn("outputRange: ", statRange + " " + endRange);
-    }
     return {
       transform,
     };
@@ -248,16 +244,6 @@ class AppIntro extends Component {
     const AnimatedStyle3 = this.getTransform(index, 15, level);
     const imgSource = (typeof img === 'string') ? {uri: img} : img;
 
-    if(index == 0) {
-      // console.warn("first page: ", AnimatedStyle1.transform);
-    }
-
-    if(index == 1) {
-      // console.warn("second page: ", AnimatedStyle1.transform);
-    //   console.warn(AnimatedStyle2.transform);
-    //   console.warn(AnimatedStyle3.transform);
-    }
-
     const pageView = (
       <View style={[this.styles.slide, { backgroundColor }]} showsPagination={false} key={index}>
         <Animated.View style={[this.styles.header, ...AnimatedStyle1.transform]}>
@@ -317,15 +303,6 @@ class AppIntro extends Component {
     return this.props.pageArray && this.props.pageArray.length > 0 && Platform.OS === 'android'
   }
 
-  onScroll() {
-    Animated.event(
-      [{ x: this.state.parallax }]
-    );
-    // Animated.event(
-    //   [{nativeEvent: {contentOffset: {x: this.state.parallax}}}]
-    // );
-  }
-
   render() {
     const childrens = this.props.children;
     const { pageArray } = this.props;
@@ -375,7 +352,9 @@ class AppIntro extends Component {
               }
               this.props.onSlideChange(state.index, state.total);
             }}
-            onScroll={() => this.onScroll()}
+            onScroll={Animated.event(
+              [{ x: this.state.parallax }]
+            )}
           >
           {pages}
         </Swiper>

@@ -1,11 +1,11 @@
 import assign from 'assign-deep';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StatusBar,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   Animated,
   Dimensions,
   Image,
@@ -23,11 +23,11 @@ const defaulStyles = {
   header: {
     flex: 0.5,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   pic: {
     width: 150,
-    height: 150,
+    height: 150
   },
   info: {
     flex: 0.5,
@@ -77,7 +77,7 @@ const defaulStyles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   },
   dotContainer: {
     flex: 0.6,
@@ -104,7 +104,7 @@ const defaulStyles = {
   },
 }
 
-export default class AppIntro extends Component {
+class AppIntro extends Component {
   constructor(props) {
     super(props);
 
@@ -114,7 +114,7 @@ export default class AppIntro extends Component {
       skipFadeOpacity: new Animated.Value(1),
       doneFadeOpacity: new Animated.Value(0),
       nextOpacity: new Animated.Value(1),
-      parallax: new Animated.Value(0),
+      parallax: new Animated.Value(0)
     };
   }
 
@@ -165,6 +165,7 @@ export default class AppIntro extends Component {
     const endOpacity = isFirstPage ? 1 : 1;
     const leftPosition = isFirstPage ? 0 : windowsWidth / 3;
     const rightPosition = isFirstPage ? -windowsWidth / 3 : 0;
+    
     const transform = [{
       transform: [
         {
@@ -181,6 +182,10 @@ export default class AppIntro extends Component {
         inputRange: [statRange, endRange], outputRange: [startOpacity, endOpacity],
       }),
     }];
+    if(index == 1) {
+      console.warn("inputRange: ", statRange + " " + endRange);
+      console.warn("outputRange: ", statRange + " " + endRange);
+    }
     return {
       transform,
     };
@@ -242,6 +247,17 @@ export default class AppIntro extends Component {
     const AnimatedStyle2 = this.getTransform(index, 0, level);
     const AnimatedStyle3 = this.getTransform(index, 15, level);
     const imgSource = (typeof img === 'string') ? {uri: img} : img;
+
+    if(index == 0) {
+      // console.warn("first page: ", AnimatedStyle1.transform);
+    }
+
+    if(index == 1) {
+      // console.warn("second page: ", AnimatedStyle1.transform);
+    //   console.warn(AnimatedStyle2.transform);
+    //   console.warn(AnimatedStyle3.transform);
+    }
+
     const pageView = (
       <View style={[this.styles.slide, { backgroundColor }]} showsPagination={false} key={index}>
         <Animated.View style={[this.styles.header, ...AnimatedStyle1.transform]}>
@@ -301,35 +317,45 @@ export default class AppIntro extends Component {
     return this.props.pageArray && this.props.pageArray.length > 0 && Platform.OS === 'android'
   }
 
+  onScroll() {
+    Animated.event(
+      [{ x: this.state.parallax }]
+    );
+    // Animated.event(
+    //   [{nativeEvent: {contentOffset: {x: this.state.parallax}}}]
+    // );
+  }
+
   render() {
     const childrens = this.props.children;
     const { pageArray } = this.props;
     let pages = [];
-    let androidPages = null;
+    // let androidPages = null;
     if (pageArray.length > 0) {
       pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
     } else {
-      if (Platform.OS === 'ios') {
+      // if (Platform.OS === 'ios') {
+      //   pages = childrens.map((children, i) => this.renderChild(children, i, i));
+      // } else {
+      //   androidPages = childrens.map((children, i) => {
+      //     const { transform } = this.getTransform(i, -windowsWidth / 3 * 2, 1);
+      //     pages.push(<View key={i} />);
+      //     return (
+      //       <Animated.View key={i} style={[{
+      //         position: 'absolute',
+      //         height: windowsHeight,
+      //         width: windowsWidth,
+      //         top: 0,
+      //       }, {
+      //         ...transform[0],
+      //       }]}
+      //       >
+      //         {this.renderChild(children, i, i)}
+      //       </Animated.View>
+      //     );
+      //   });
+      // }
         pages = childrens.map((children, i) => this.renderChild(children, i, i));
-      } else {
-        androidPages = childrens.map((children, i) => {
-          const { transform } = this.getTransform(i, -windowsWidth / 3 * 2, 1);
-          pages.push(<View key={i} />);
-          return (
-            <Animated.View key={i} style={[{
-              position: 'absolute',
-              height: windowsHeight,
-              width: windowsWidth,
-              top: 0,
-            }, {
-              ...transform[0],
-            }]}
-            >
-              {this.renderChild(children, i, i)}
-            </Animated.View>
-          );
-        });
-      }
     }
 
     if (this.isToTintStatusBar()) {
@@ -337,23 +363,20 @@ export default class AppIntro extends Component {
     }
 
     return (
-      <View>
-        {androidPages}
+      <View style={{flex: 1}}>
+        {/* {androidPages} */}
         <Swiper
-          loop={false}
-          index={this.props.defaultIndex}
-          renderPagination={this.renderPagination}
-          onMomentumScrollEnd={(e, state) => {
-            if (this.isToTintStatusBar()) {
-              StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
-            }
-
-            this.props.onSlideChange(state.index, state.total);
-          }}
-          onScroll={Animated.event(
-            [{ x: this.state.parallax }]
-          )}
-        >
+            loop={false}
+            index={this.props.defaultIndex}
+            renderPagination={this.renderPagination}
+            onMomentumScrollEnd={(e, state) => {
+              if (this.isToTintStatusBar()) {
+                StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
+              }
+              this.props.onSlideChange(state.index, state.total);
+            }}
+            onScroll={() => this.onScroll()}
+          >
           {pages}
         </Swiper>
       </View>
@@ -408,3 +431,5 @@ AppIntro.defaultProps = {
   showDoneButton: true,
   showDots: true
 };
+
+module.exports = AppIntro;

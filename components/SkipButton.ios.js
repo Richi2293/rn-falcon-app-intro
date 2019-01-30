@@ -13,7 +13,7 @@ export const SkipButton = ({
   skipFadeOpacity
 }) => {
   return (
-    <Animated.View style={[styles.btnContainer, {
+    <Animated.View style={[styles.btnSkipContainer, {
       opacity: skipFadeOpacity,
       transform: [{
         translateX: skipFadeOpacity.interpolate({

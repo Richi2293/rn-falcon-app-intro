@@ -109,6 +109,8 @@ export default class App extends Component < Props > {
     return (
       <View style={{flex: 1}}>
         <AppIntro
+          onSkipBtnClick={() => console.warn("skip click")}
+          onDoneBtnClick={() => console.warn("done click")}
           pageArray={pageArray}>
         </AppIntro>
       </View>

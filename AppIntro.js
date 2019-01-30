@@ -64,6 +64,20 @@ const defaulStyles = {
     marginRight: 7,
     marginTop: 7,
     marginBottom: 7,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  viewDots: {
+    flexDirection: 'row',
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  viewDoneButton: {
+    flexDirection: 'row',
+    flex: 0.2,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   activeDotStyle: {
     backgroundColor: '#fff',
@@ -74,10 +88,7 @@ const defaulStyles = {
     left: 0,
     right: 0,
     flexDirection: 'row',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent'
+    flex: 1
   },
   dotContainer: {
     flex: 0.6,
@@ -89,7 +100,13 @@ const defaulStyles = {
     flex: 0.2,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
+    height: 50
+  },
+  btnSkipContainer: {
+    flex: 0.2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50
   },
   nextButtonText: {
     fontSize: 25,
@@ -100,7 +117,7 @@ const defaulStyles = {
     height: 80,
     width: 100,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
 }
 
@@ -109,7 +126,7 @@ class AppIntro extends Component {
     super(props);
 
     this.styles = StyleSheet.create(assign({}, defaulStyles, props.customStyles));
-
+    
     this.state = {
       skipFadeOpacity: new Animated.Value(1),
       doneFadeOpacity: new Animated.Value(0),
@@ -119,15 +136,17 @@ class AppIntro extends Component {
   }
 
   onNextBtnClick = (context) => {
+    // console.warn("test: ", this.mySwiper);
+    // return;
     if (context.state.isScrolling || context.state.total < 2) return;
     const state = context.state;
     const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
     let x = 0;
     if (state.dir === 'x') x = diff * state.width;
     if (Platform.OS === 'ios') {
-      context.refs.scrollView.scrollTo({ y: 0, x });
+      context.scrollView.scrollTo({ y: 0, x });
     } else {
-      context.refs.scrollView.setPage(diff);
+      context.scrollView.setPage(diff);
       context.onScrollEnd({
         nativeEvent: {
           position: diff,
@@ -205,25 +224,32 @@ class AppIntro extends Component {
     }
     return (
       <View style={[this.styles.paginationContainer]}>
-        {this.props.showSkipButton ? <SkipButton
-          {...this.props}
-          {...this.state}
-          isSkipBtnShow={isSkipBtnShow}
-          styles={this.styles}
-          onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
-          <View style={this.styles.btnContainer} />
-        }
-        {this.props.showDots && RenderDots(index, total, {
-          ...this.props,
-          styles: this.styles
-        })}
-        {this.props.showDoneButton ? <DoneButton
+          {this.props.showSkipButton ? <SkipButton
             {...this.props}
             {...this.state}
-            isDoneBtnShow={isDoneBtnShow}
+            isSkipBtnShow={isSkipBtnShow}
             styles={this.styles}
-            onNextBtnClick={this.onNextBtnClick.bind(this, context)}
-            onDoneBtnClick={this.props.onDoneBtnClick} /> :
+            onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
+            <View style={this.styles.btnContainer} />
+          }
+          {this.props.showDots ?
+            <View style={this.styles.viewDots}>
+                {RenderDots(index, total, {
+                  ...this.props,
+                  styles: this.styles
+                })}
+            </View>
+          : null }
+          {this.props.showDoneButton ?
+            <View style={this.styles.viewDoneButton}>
+              <DoneButton
+                {...this.props}
+                {...this.state}
+                isDoneBtnShow={isDoneBtnShow}
+                styles={this.styles}
+                onNextBtnClick={this.onNextBtnClick.bind(this, context)}/>
+            </View>
+          :
             <View style={this.styles.btnContainer} />
           }
       </View>
@@ -303,6 +329,10 @@ class AppIntro extends Component {
     return this.props.pageArray && this.props.pageArray.length > 0 && Platform.OS === 'android'
   }
 
+  refScrollView = view => {
+    this.scrollView = view;
+  }
+
   render() {
     const childrens = this.props.children;
     const { pageArray } = this.props;
@@ -343,6 +373,7 @@ class AppIntro extends Component {
       <View style={{flex: 1}}>
         {/* {androidPages} */}
         <Swiper
+            ref={this.refScrollView}
             loop={false}
             index={this.props.defaultIndex}
             renderPagination={this.renderPagination}

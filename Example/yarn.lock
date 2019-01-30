@@ -5054,7 +5054,7 @@ react-is@^16.6.3:
 
 "react-native-swiper@git+https://github.com/Richi2293/react-native-swiper.git":
   version "1.5.14"
-  resolved "git+https://github.com/Richi2293/react-native-swiper.git#62ca22c1482690e58df071ac55c91935b163b06c"
+  resolved "git+https://github.com/Richi2293/react-native-swiper.git#73ea44940674de99a079d45f45fcd9a8118615c2"
   dependencies:
     prop-types "^15.5.10"
 

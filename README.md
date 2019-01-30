@@ -1,5 +1,6 @@
 # rn-falcon-app-intro
 rn-falcon-app-intro is a react native component implementing a parallax effect welcome page using base on [react-native-swiper](https://github.com/leecade/react-native-swiper) , similar to the one found in Google's app like Sheet, Drive, Docs...
+This library is based on this no longer followed frequently: # **[react-native-app-intro](https://github.com/FuYaoDe/react-native-app-intro)**
 
 # rn-falcon-app-intro Screen Capture
 

@@ -4,8 +4,8 @@
 
 <p align="center">
   <a href="https://facebook.github.io/react-native/">React Native</a> component <br/>
-  Implementing a parallax effect welcome page using base on [react-native-swiper](https://github.com/leecade/react-native-swiper) , similar to the one found in Google's app like Sheet, Drive, Docs...<br/>
-  This component is based on this no longer followed frequently: # **[react-native-app-intro](https://github.com/FuYaoDe/react-native-app-intro)**
+  Implementing a parallax effect welcome page using base on <a href="https://github.com/leecade/react-native-swiper">react-native-swiper</a>, similar to the one found in Google's app like Sheet, Drive, Docs...<br/>
+  This component is based on this no longer followed frequently: <a href="https://github.com/FuYaoDe/react-native-app-intro">react-native-app-intro</a>
 </p>
 
 <p align="center">

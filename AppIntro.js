@@ -337,31 +337,9 @@ class AppIntro extends Component {
     const childrens = this.props.children;
     const { pageArray } = this.props;
     let pages = [];
-    // let androidPages = null;
     if (pageArray.length > 0) {
       pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
     } else {
-      // if (Platform.OS === 'ios') {
-      //   pages = childrens.map((children, i) => this.renderChild(children, i, i));
-      // } else {
-      //   androidPages = childrens.map((children, i) => {
-      //     const { transform } = this.getTransform(i, -windowsWidth / 3 * 2, 1);
-      //     pages.push(<View key={i} />);
-      //     return (
-      //       <Animated.View key={i} style={[{
-      //         position: 'absolute',
-      //         height: windowsHeight,
-      //         width: windowsWidth,
-      //         top: 0,
-      //       }, {
-      //         ...transform[0],
-      //       }]}
-      //       >
-      //         {this.renderChild(children, i, i)}
-      //       </Animated.View>
-      //     );
-      //   });
-      // }
         pages = childrens.map((children, i) => this.renderChild(children, i, i));
     }
 
@@ -371,7 +349,6 @@ class AppIntro extends Component {
 
     return (
       <View style={{flex: 1}}>
-        {/* {androidPages} */}
         <Swiper
             ref={this.refScrollView}
             loop={false}

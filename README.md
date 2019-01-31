@@ -1,16 +1,34 @@
-# rn-falcon-app-intro
-rn-falcon-app-intro is a react native component implementing a parallax effect welcome page using base on [react-native-swiper](https://github.com/leecade/react-native-swiper) , similar to the one found in Google's app like Sheet, Drive, Docs...
-This library is based on this no longer followed frequently: # **[react-native-app-intro](https://github.com/FuYaoDe/react-native-app-intro)**
+<h3 align="center">
+  rn-falcon-app-intro
+</h3>
 
-# rn-falcon-app-intro Screen Capture
+<p align="center">
+  <a href="https://facebook.github.io/react-native/">React Native</a> component <br/>
+  Implementing a parallax effect welcome page using base on <a href="https://github.com/leecade/react-native-swiper">react-native-swiper</a>, similar to the one found in Google's app like Sheet, Drive, Docs...<br/>
+  This component is based on this no longer followed frequently: <a href="https://github.com/FuYaoDe/react-native-app-intro">react-native-app-intro</a>
+</p>
 
-[Example code](https://github.com/FuYaoDe/rn-falcon-app-intro/tree/master/Example)
+<p align="center">
+  <a href="https://www.npmjs.com/package/rn-falcon-app-intro"><img src="https://img.shields.io/npm/v/rn-falcon-app-intro.svg?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/rn-falcon-app-intro"><img src="https://img.shields.io/npm/dm/rn-falcon-app-intro.svg?style=flat-square"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+</p>
+<br />
 
-### Support ios、android
+# Table of Content
+
+1. [Example](#example)
+2. [Installation](#installation)
+3. [Basic Usage](#basic-usage)
+4. [Advanced Usage](#advanced-usage)
+5. [Properties](#properties)
+
+# Example
+
+[Example code](https://github.com/Richi2293/rn-falcon-app-intro/tree/master/Example)
+
+### Support ios and android
 <img src="http://i.giphy.com/3o6ozjLoOnYTXfzJgQ.gif">
-<img src="http://gifyu.com/images/android.gif" width="345">
-
-<a href="http://www.freepik.com">Designed by Freepik</a>
 
 ### Installation
 

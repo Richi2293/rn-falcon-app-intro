@@ -23,4 +23,4 @@ export const DoneButton = ({
   )
 }
 
-export default DoneButton
+export default DoneButton;

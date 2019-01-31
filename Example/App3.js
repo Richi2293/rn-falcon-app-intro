@@ -7,7 +7,7 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-// basic example with the use of pageArray
+// advanced example 2
 
 import React, {
   Component
@@ -20,6 +20,9 @@ import {
   Image,
   Dimensions
 } from 'react-native';
+
+const windowsWidth = Dimensions.get('window').width;
+const windowsHeight = Dimensions.get('window').height;
 
 import AppIntro from 'rn-falcon-app-intro';
 // import AppIntro from './AppIntro';
@@ -109,8 +112,27 @@ export default class App extends Component < Props > {
       <View style={{flex: 1}}>
         <AppIntro
           onSkipBtnClick={() => console.warn("skip click")}
-          onDoneBtnClick={() => console.warn("done click")}
-          pageArray={pageArray}>
+          onDoneBtnClick={() => console.warn("done click")}>
+                <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>
+                    <View level={10}><Text style={styles.text}>Page 1</Text></View>
+                    <View level={15}><Text style={styles.text}>Page 1</Text></View>
+                    <View level={8}><Text style={styles.text}>Page 1</Text></View>
+                  </View>
+                  <View style={[styles.slide, { backgroundColor: '#a4b602' }]}>
+                    <View level={-10}><Text style={styles.text}>Page 2</Text></View>
+                    <View level={5}><Text style={styles.text}>Page 2</Text></View>
+                    <View level={20}><Text style={styles.text}>Page 2</Text></View>
+                  </View>
+                  <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>
+                    <View level={8}><Text style={styles.text}>Page 3</Text></View>
+                    <View level={0}><Text style={styles.text}>Page 3</Text></View>
+                    <View level={-10}><Text style={styles.text}>Page 3</Text></View>
+                  </View>
+                  <View style={[styles.slide, { backgroundColor: '#a4b602' }]}>
+                    <View level={5}><Text style={styles.text}>Page 4</Text></View>
+                    <View level={10}><Text style={styles.text}>Page 4</Text></View>
+                    <View level={15}><Text style={styles.text}>Page 4</Text></View>
+                </View>
         </AppIntro>
       </View>
     );

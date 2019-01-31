@@ -1,6 +1,19 @@
-# rn-falcon-app-intro
-rn-falcon-app-intro is a react native component implementing a parallax effect welcome page using base on [react-native-swiper](https://github.com/leecade/react-native-swiper) , similar to the one found in Google's app like Sheet, Drive, Docs...<br/>
-This library is based on this no longer followed frequently: # **[react-native-app-intro](https://github.com/FuYaoDe/react-native-app-intro)**
+<h3 align="center">
+  rn-falcon-app-intro
+</h3>
+
+<p align="center">
+  <a href="https://facebook.github.io/react-native/">React Native</a> component <br/>
+  Implementing a parallax effect welcome page using base on [react-native-swiper](https://github.com/leecade/react-native-swiper) , similar to the one found in Google's app like Sheet, Drive, Docs...<br/>
+  This component is based on this no longer followed frequently: # **[react-native-app-intro](https://github.com/FuYaoDe/react-native-app-intro)**
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/rn-falcon-app-intro"><img src="https://img.shields.io/npm/v/rn-falcon-app-intro.svg?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/rn-falcon-app-intro"><img src="https://img.shields.io/npm/dm/rn-falcon-app-intro.svg?style=flat-square"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+</p>
+<br />
 
 # Table of Content
 
@@ -10,7 +23,7 @@ This library is based on this no longer followed frequently: # **[react-native-a
 4. [Advanced Usage](#advanced-usage)
 5. [Properties](#properties)
 
-# example
+# Example
 
 [Example code](https://github.com/Richi2293/rn-falcon-app-intro/tree/master/Example)
 

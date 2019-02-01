@@ -354,6 +354,7 @@ class AppIntro extends Component {
             loop={false}
             index={this.props.defaultIndex}
             renderPagination={this.renderPagination}
+            scrollEnabled={this.props.scrollEnabled}
             onMomentumScrollEnd={(e, state) => {
               if (this.isToTintStatusBar()) {
                 StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
@@ -397,6 +398,7 @@ AppIntro.propTypes = {
   defaultIndex: PropTypes.number,
   showSkipButton: PropTypes.bool,
   showDoneButton: PropTypes.bool,
+  scrollEnabled: PropTypes.bool,
   showDots: PropTypes.bool,
 };
 
@@ -414,6 +416,7 @@ AppIntro.defaultProps = {
   skipBtnLabel: 'Skip',
   nextBtnLabel: '›',
   defaultIndex: 0,
+  scrollEnabled: true,
   showSkipButton: true,
   showDoneButton: true,
   showDots: true

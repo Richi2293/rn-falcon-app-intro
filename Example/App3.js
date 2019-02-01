@@ -112,6 +112,7 @@ export default class App extends Component < Props > {
       <View style={{flex: 1}}>
         <AppIntro
           onSkipBtnClick={() => console.warn("skip click")}
+          scrollEnabled={false}
           onDoneBtnClick={() => console.warn("done click")}>
                 <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>
                     <View level={10}><Text style={styles.text}>Page 1</Text></View>

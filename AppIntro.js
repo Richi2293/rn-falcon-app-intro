@@ -67,15 +67,21 @@ const defaulStyles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
+  viewSkip: {
+    flexDirection: 'row',
+    flex: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   viewDots: {
     flexDirection: 'row',
-    flex: 0.5,
+    flex: 0.7,
     justifyContent: 'center',
     alignItems: 'center'
   },
   viewDoneButton: {
     flexDirection: 'row',
-    flex: 0.2,
+    flex: 0.3,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -224,12 +230,17 @@ class AppIntro extends Component {
     }
     return (
       <View style={[this.styles.paginationContainer]}>
-          {this.props.showSkipButton ? <SkipButton
-            {...this.props}
-            {...this.state}
-            isSkipBtnShow={isSkipBtnShow}
-            styles={this.styles}
-            onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
+          {this.props.showSkipButton ? 
+            <View style={this.styles.viewSkip}>
+              <SkipButton
+                {...this.props}
+                {...this.state}
+                isSkipBtnShow={isSkipBtnShow}
+                styles={this.styles}
+                onSkipBtnClick={() => this.props.onSkipBtnClick(index)} 
+              />
+            </View>
+            :
             <View style={this.styles.btnContainer} />
           }
           {this.props.showDots ?

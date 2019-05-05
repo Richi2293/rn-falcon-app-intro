@@ -200,6 +200,9 @@ And in Android, image inside view component, view need width、height.
 | showDoneButton | bool | true | a boolean that defines if we should render the done button |
 | showDots | bool | true | a boolean that defines if we should render the bottom dots |
 | scrollEnabled | bool | true | a boolean that defines if swiping is enabled or disabled |
+| width | number | default width of the device | a number that defines the width of the view swiper |
+| height | number | default height of the device | a number that defines the height of the view swiper |
+| flexContainer | number | 1 | a number that defines the flex value of the view swiper |
 
 ##### **Children View Properties**
 | Prop  | PropType | Default Value | Description           |

@@ -109,9 +109,12 @@ export default class App extends Component < Props > {
       level: 10,
     }];
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, alignItems: 'center'}}>
         <AppIntro
           onSkipBtnClick={() => console.warn("skip click")}
+          // width={300}
+          // height={300}
+          // flexContainer={null}
           scrollEnabled={false}
           onDoneBtnClick={() => console.warn("done click")}>
                 <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>

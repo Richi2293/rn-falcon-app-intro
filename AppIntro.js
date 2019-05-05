@@ -142,8 +142,6 @@ class AppIntro extends Component {
   }
 
   onNextBtnClick = (context) => {
-    // console.warn("test: ", this.mySwiper);
-    // return;
     if (context.state.isScrolling || context.state.total < 2) return;
     const state = context.state;
     const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
@@ -357,9 +355,8 @@ class AppIntro extends Component {
     if (this.isToTintStatusBar()) {
       StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[0].backgroundColor, -0.3), false);
     }
-
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: this.props.flexContainer, height: this.props.height, width: this.props.width}}>
         <Swiper
             ref={this.refScrollView}
             loop={false}
@@ -411,6 +408,9 @@ AppIntro.propTypes = {
   showDoneButton: PropTypes.bool,
   scrollEnabled: PropTypes.bool,
   showDots: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  flexContainer: PropTypes.number,
 };
 
 AppIntro.defaultProps = {
@@ -430,7 +430,10 @@ AppIntro.defaultProps = {
   scrollEnabled: true,
   showSkipButton: true,
   showDoneButton: true,
-  showDots: true
+  showDots: true,
+  width: windowsWidth,
+  height: windowsHeight,
+  flexContainer: 1
 };
 
 module.exports = AppIntro;

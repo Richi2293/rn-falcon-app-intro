@@ -137,14 +137,15 @@ class AppIntro extends Component {
       skipFadeOpacity: new Animated.Value(1),
       doneFadeOpacity: new Animated.Value(0),
       nextOpacity: new Animated.Value(1),
-      parallax: new Animated.Value(0),
-      isScrolling: false
+      parallax: new Animated.Value(0)
     };
+
+    this.isScrolling = false;
   }
 
   onNextBtnClick = (context) => {
-    if (this.state.isScrolling || context.state.total < 2) return;
-    this.setState({isScrolling: true});
+    if (this.isScrolling || this.state.isScrolling || context.state.total < 2) return;
+    this.isScrolling = true;
     const state = context.state;
     const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
     let x = 0;
@@ -370,7 +371,7 @@ class AppIntro extends Component {
                 StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
               }
               this.props.onSlideChange(state.index, state.total);
-              this.setState({isScrolling: false});
+              this.isScrolling = false;
             }}
             onScroll={Animated.event(
               [{ x: this.state.parallax }]

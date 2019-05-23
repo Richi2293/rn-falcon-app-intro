@@ -132,17 +132,20 @@ class AppIntro extends Component {
     super(props);
 
     this.styles = StyleSheet.create(assign({}, defaulStyles, props.customStyles));
-    
+
     this.state = {
       skipFadeOpacity: new Animated.Value(1),
       doneFadeOpacity: new Animated.Value(0),
       nextOpacity: new Animated.Value(1),
-      parallax: new Animated.Value(0)
+      parallax: new Animated.Value(0),
+      isScrolling: false
     };
   }
 
   onNextBtnClick = (context) => {
-    if (context.state.isScrolling || context.state.total < 2) return;
+      console.log(context.state);
+    if (this.state.isScrolling || context.state.total < 2) return;
+    this.setState({isScrolling: true});
     const state = context.state;
     const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
     let x = 0;
@@ -188,7 +191,7 @@ class AppIntro extends Component {
     const endOpacity = isFirstPage ? 1 : 1;
     const leftPosition = isFirstPage ? 0 : windowsWidth / 3;
     const rightPosition = isFirstPage ? -windowsWidth / 3 : 0;
-    
+
     const transform = [{
       transform: [
         {
@@ -228,14 +231,14 @@ class AppIntro extends Component {
     }
     return (
       <View style={[this.styles.paginationContainer]}>
-          {this.props.showSkipButton ? 
+          {this.props.showSkipButton ?
             <View style={this.styles.viewSkip}>
               <SkipButton
                 {...this.props}
                 {...this.state}
                 isSkipBtnShow={isSkipBtnShow}
                 styles={this.styles}
-                onSkipBtnClick={() => this.props.onSkipBtnClick(index)} 
+                onSkipBtnClick={() => this.props.onSkipBtnClick(index)}
               />
             </View>
             :
@@ -368,6 +371,7 @@ class AppIntro extends Component {
                 StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
               }
               this.props.onSlideChange(state.index, state.total);
+              this.setState({isScrolling: false});
             }}
             onScroll={Animated.event(
               [{ x: this.state.parallax }]

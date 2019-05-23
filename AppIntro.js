@@ -143,7 +143,6 @@ class AppIntro extends Component {
   }
 
   onNextBtnClick = (context) => {
-      console.log(context.state);
     if (this.state.isScrolling || context.state.total < 2) return;
     this.setState({isScrolling: true});
     const state = context.state;

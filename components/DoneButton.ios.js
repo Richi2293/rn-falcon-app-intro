@@ -24,25 +24,28 @@ export const DoneButton = ({
         }],
       }]}
       >
-        <View style={styles.full}>
+        <TouchableOpacity
+          style={styles.full}
+          onPress={isDoneBtnShow ? onDoneBtnClick : onNextBtnClick}
+        >
           <Text style={[styles.controllText, {
             color: rightTextColor, paddingRight: 30,
           }]}>
             {doneBtnLabel}
           </Text>
-        </View>
-      </Animated.View>
-      <Animated.View style={[styles.full, { height: 0 }, { opacity: nextOpacity }]}>
-        <TouchableOpacity style={styles.full}
-          onPress={ isDoneBtnShow ? onDoneBtnClick : onNextBtnClick}>
-         <Text style={[styles.nextButtonText, { color: rightTextColor }]}>
-          {nextBtnLabel}
-        </Text>
         </TouchableOpacity>
       </Animated.View>
+      {isDoneBtnShow ? null : (
+        <Animated.View style={[styles.full, { height: 0 }, { opacity: nextOpacity }]}>
+          <TouchableOpacity style={styles.full} onPress={onNextBtnClick}>
+            <Text style={[styles.nextButtonText, { color: rightTextColor }]}>
+              {nextBtnLabel}
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
+      )}
     </View>
   )
 }
 
 export default DoneButton
-        

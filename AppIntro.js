@@ -270,7 +270,9 @@ class AppIntro extends Component {
 
   renderBasicSlidePage = (index, {
     title,
+    titleStyle,
     description,
+    descriptionStyle,
     img,
     imgStyle,
     backgroundColor,
@@ -289,10 +291,10 @@ class AppIntro extends Component {
         </Animated.View>
         <View style={this.styles.info}>
           <Animated.View style={AnimatedStyle2.transform}>
-            <Text style={[this.styles.title, { color: fontColor }]}>{title}</Text>
+            <Text style={[this.styles.title, { color: fontColor }, titleStyle]}>{title}</Text>
           </Animated.View>
           <Animated.View style={AnimatedStyle3.transform}>
-            <Text style={[this.styles.description, { color: fontColor }]}>{description}</Text>
+            <Text style={[this.styles.description, { color: fontColor }, descriptionStyle]}>{description}</Text>
           </Animated.View>
         </View>
       </View>

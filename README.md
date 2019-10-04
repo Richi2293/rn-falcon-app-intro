@@ -33,6 +33,11 @@
 
 ### Installation
 
+For React Native <=60
+```bash
+$ npm i rn-falcon-app-intro@1.2.3 --save
+```
+For React Native >=60
 ```bash
 $ npm i rn-falcon-app-intro --save
 ```

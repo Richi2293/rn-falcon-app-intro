@@ -1,6 +1,6 @@
 {
   "name": "rn-falcon-app-intro",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "rn-falcon-app-intro is a react native plugin implementing a parallax effect welcome page using base on react-native-swiper , similar to the one found in Google's app like Sheet, Drive, Docs...",
   "main": "AppIntro.js",
   "scripts": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "assign-deep": "^0.4.5",
     "prop-types": "^15.5.8",
-    "react-native-swiper": "git+https://github.com/Richi2293/react-native-swiper.git"
+    "react-native-swiper": "^1.6.0-nightly.5"
   },
   "devDependencies": {
     "react-test-renderer": "16.6.3"

@@ -150,16 +150,22 @@ class AppIntro extends Component {
     const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
     let x = 0;
     if (state.dir === 'x') x = diff * state.width;
-    if (Platform.OS === 'ios') {
-      context.scrollView.scrollTo({ y: 0, x });
-    } else {
-      context.scrollView.setPage(diff);
-      context.onScrollEnd({
-        nativeEvent: {
-          position: diff,
-        },
-      });
-    }
+    context.scrollView.scrollTo({ y: 0, x });
+    context.onScrollEnd({
+      nativeEvent: {
+        position: diff,
+      },
+    });
+    // if (Platform.OS === 'ios') {
+    //   context.scrollView.scrollTo({ y: 0, x });
+    // } else {
+    //   context.scrollView.setPage(diff);
+    //   context.onScrollEnd({
+    //     nativeEvent: {
+    //       position: diff,
+    //     },
+    //   });
+    // }
     this.props.onNextBtnClick(context.state.index);
   }
 
@@ -375,9 +381,9 @@ class AppIntro extends Component {
               this.props.onSlideChange(state.index, state.total);
               this.isScrolling = false;
             }}
-            onScroll={Animated.event(
-              [{ x: this.state.parallax }]
-            )}
+            // onScroll={Animated.event(
+            //   [{ x: this.state.parallax }]
+            // )}
           >
           {pages}
         </Swiper>

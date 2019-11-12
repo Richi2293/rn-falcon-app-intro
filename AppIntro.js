@@ -190,7 +190,8 @@ class AppIntro extends Component {
     ).start();
   }
   getTransform = (index, offset, level) => {
-    const isFirstPage = index === 0;
+    // const isFirstPage = index === 0;
+    var isFirstPage = true;
     const statRange = isFirstPage ? 0 : windowsWidth * (index - 1);
     const endRange = isFirstPage ? windowsWidth : windowsWidth * index;
     const startOpacity = isFirstPage ? 1 : 0;
@@ -360,7 +361,7 @@ class AppIntro extends Component {
     if (pageArray.length > 0) {
       pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
     } else {
-        pages = childrens.map((children, i) => this.renderChild(children, i, i));
+      pages = childrens.map((children, i) => this.renderChild(children, i, i));
     }
 
     if (this.isToTintStatusBar()) {

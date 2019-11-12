@@ -19,8 +19,8 @@
 
 1. [Example](#example)
 2. [Installation](#installation)
-3. [Basic Usage](#basic-usage)
-4. [Advanced Usage](#advanced-usage)
+<!-- 3. [Basic Usage](#basic-usage) -->
+4. [Usage](#usage)
 5. [Properties](#properties)
 6. [Contributing](#contributing)
 
@@ -42,6 +42,7 @@ For React Native >=60
 $ npm i rn-falcon-app-intro --save
 ```
 
+<!-- 
 ### Basic Usage
 
 You can use pageArray quick generation your app intro with parallax effect. With the basic usage, the Android status bar will be updated to match your slide background color.
@@ -107,10 +108,11 @@ class Example extends Component {
 
 AppRegistry.registerComponent('Example', () => Example);
 ```
-
-### Advanced Usage
+-->
+### Usage
 
 If you need customized page like my Example, you can  pass in `View` component into AppIntro component and set level. Remember any need use parallax effect component, Need to be `<View level={10}></View>` inside.
+**(At the moment the parallax effect doesn't work, maybe in the future it will be fixed)**
 
 <img src="http://i.giphy.com/26AHwds1g5HjXrd4s.gif">
 

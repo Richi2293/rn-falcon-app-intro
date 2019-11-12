@@ -19,10 +19,10 @@
 
 1. [Example](#example)
 2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Properties](#properties)
+5. [Contributing](#contributing)
 <!-- 3. [Basic Usage](#basic-usage) -->
-4. [Usage](#usage)
-5. [Properties](#properties)
-6. [Contributing](#contributing)
 
 # Example
 
@@ -112,6 +112,7 @@ AppRegistry.registerComponent('Example', () => Example);
 ### Usage
 
 If you need customized page like my Example, you can  pass in `View` component into AppIntro component and set level. Remember any need use parallax effect component, Need to be `<View level={10}></View>` inside.
+<br />
 **(At the moment the parallax effect doesn't work, maybe in the future it will be fixed)**
 
 <img src="http://i.giphy.com/26AHwds1g5HjXrd4s.gif">

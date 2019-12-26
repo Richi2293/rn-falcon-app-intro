@@ -375,11 +375,14 @@ class AppIntro extends Component {
             index={this.props.defaultIndex}
             renderPagination={this.renderPagination}
             scrollEnabled={this.props.scrollEnabled}
+            onIndexChanged={(index) => {
+              this.props.onSlideChange(index);
+            }}
             onMomentumScrollEnd={(e, state) => {
               if (this.isToTintStatusBar()) {
                 StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
               }
-              this.props.onSlideChange(state.index, state.total);
+              // this.props.onSlideChange(state.index, state.total);
               this.isScrolling = false;
             }}
             // onScroll={Animated.event(

@@ -155,16 +155,6 @@ class AppIntro extends Component {
         position: diff,
       },
     });
-    // if (Platform.OS === 'ios') {
-    //   context.scrollView.scrollTo({ y: 0, x });
-    // } else {
-    //   context.scrollView.setPage(diff);
-    //   context.onScrollEnd({
-    //     nativeEvent: {
-    //       position: diff,
-    //     },
-    //   });
-    // }
     this.props.onNextBtnClick(context.state.index);
   }
 
@@ -268,7 +258,7 @@ class AppIntro extends Component {
                 onNextBtnClick={this.onNextBtnClick.bind(this, context)}/>
             </View>
           :
-            <View style={this.styles.btnContainer} />
+            <View style={this.styles.viewDoneButton} />
           }
       </View>
     );
@@ -355,13 +345,13 @@ class AppIntro extends Component {
 
   render() {
     const childrens = this.props.children;
-    const { pageArray } = this.props;
+    // const { pageArray } = this.props;
     let pages = [];
-    if (pageArray.length > 0) {
-      pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
-    } else {
+    // if (pageArray.length > 0) {
+    //   pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
+    // } else {
       pages = childrens.map((children, i) => this.renderChild(children, i, i));
-    }
+    // }
 
     if (this.isToTintStatusBar()) {
       StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[0].backgroundColor, -0.3), false);

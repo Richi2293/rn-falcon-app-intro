@@ -171,21 +171,21 @@ class AppIntro extends Component {
   setDoneBtnOpacity = (value) => {
     Animated.timing(
       this.state.doneFadeOpacity,
-      { toValue: value },
+      { toValue: value, useNativeDriver: true },
     ).start();
   }
 
   setSkipBtnOpacity = (value) => {
     Animated.timing(
       this.state.skipFadeOpacity,
-      { toValue: value },
+      { toValue: value, useNativeDriver: true },
     ).start();
   }
 
   setNextOpacity = (value) => {
     Animated.timing(
       this.state.nextOpacity,
-      { toValue: value },
+      { toValue: value, useNativeDriver: true },
     ).start();
   }
   getTransform = (index, offset, level) => {

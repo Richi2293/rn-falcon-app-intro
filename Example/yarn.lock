@@ -1144,9 +1144,9 @@ acorn-walk@^6.0.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1:
   version "6.3.0"
@@ -5559,10 +5559,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-falcon-app-intro@1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/rn-falcon-app-intro/-/rn-falcon-app-intro-1.2.7.tgz#f95747f66f6e4739fdadc89768d82e4ef5f20645"
-  integrity sha512-6+ZOT4TVsr8F761We+yplFnymKRzS/qtG2wo3pHzg/LOMavbqns4Aw0tWKe5xXicy0K4jzw7pVnGW4DUG1gvAA==
+rn-falcon-app-intro@1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/rn-falcon-app-intro/-/rn-falcon-app-intro-1.2.8.tgz#00a3eb8a4e6908995213714312947d499d80b9b8"
+  integrity sha512-itKDSbpcICgvW4JrkOOTtZ+XrpbvE6JbuYFfhlTk8mApLnjdKlcuoSuzTA2XSYgpKTbIE5AD04fGw2BC9D/VgA==
   dependencies:
     assign-deep "^0.4.5"
     prop-types "^15.5.8"

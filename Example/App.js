@@ -3,116 +3,112 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
+ * @flow strict-local
  */
 
-// basic example with the use of pageArray
-
-import React, {
-  Component
-} from 'react';
+import React from 'react';
 import {
+  SafeAreaView,
   StyleSheet,
-  Text,
+  ScrollView,
   View,
-  Alert,
-  Image,
-  Dimensions
+  Text,
+  StatusBar,
 } from 'react-native';
 
-import AppIntro from 'rn-falcon-app-intro';
-// import AppIntro from './AppIntro';
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+const App: () => React$Node = () => {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}>
+          <Header />
+          {global.HermesInternal == null ? null : (
+            <View style={styles.engine}>
+              <Text style={styles.footer}>Engine: Hermes</Text>
+            </View>
+          )}
+          <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionDescription}>
+                Edit <Text style={styles.highlight}>App.js</Text> to change this
+                screen and then come back to see your edits.
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>See Your Changes</Text>
+              <Text style={styles.sectionDescription}>
+                <ReloadInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionDescription}>
+                <DebugInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Learn More</Text>
+              <Text style={styles.sectionDescription}>
+                Read the docs to discover what to do next:
+              </Text>
+            </View>
+            <LearnMoreLinks />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
-  slide: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
-    padding: 15,
+  scrollView: {
+    backgroundColor: Colors.lighter,
   },
-  header: {
-    flex: 0.5,
-    justifyContent: 'center',
-    alignItems: 'center',
+  engine: {
+    position: 'absolute',
+    right: 0,
   },
-  pic: {
-    width: 75 * 2,
-    height: 63 * 2,
+  body: {
+    backgroundColor: Colors.white,
   },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
   },
-  info: {
-    flex: 0.5,
-    alignItems: 'center',
-    padding: 40
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.black,
   },
-  title: {
-    color: '#fff',
-    fontSize: 30,
-    paddingBottom: 20,
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
   },
-  description: {
-    color: '#fff',
-    fontSize: 20,
+  highlight: {
+    fontWeight: '700',
+  },
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
   },
 });
 
-type Props = {};
-
-export default class App extends Component < Props > {
-
-  onSkipBtnHandle = (index) => {
-    // Alert.alert('Skip');
-    // console.warn(index);
-  }
-  doneBtnHandle = () => {
-    // Alert.warn('Done');
-  }
-  nextBtnHandle = (index) => {
-    // Alert.alert('Next');
-    // console.warn(index);
-  }
-  onSlideChangeHandle = (index, total) => {
-    // console.warn(index, total);
-  }
-
-  render() {
-    const pageArray = [{
-      title: 'Page 1',
-      description: 'Description 1',
-      img: require('./img/1/c1.png'),
-      imgStyle: {
-        height: 80 * 2.5,
-        width: 109 * 2.5,
-      },
-      backgroundColor: '#fa931d',
-      fontColor: '#fff',
-      level: 10,
-    }, {
-      title: 'Page 2',
-      description: 'Description 2',
-      img: require('./img/1/c1.png'),
-      imgStyle: {
-        height: 80 * 2.5,
-        width: 109 * 2.5,
-      },
-      backgroundColor: '#a4b602',
-      fontColor: '#fff',
-      level: 10,
-    }];
-    return (
-      <View style={{flex: 1}}>
-        <AppIntro
-          onSkipBtnClick={() => console.warn("skip click")}
-          onDoneBtnClick={() => console.warn("done click")}
-          pageArray={pageArray}>
-        </AppIntro>
-      </View>
-    );
-  }
-};
+export default App;

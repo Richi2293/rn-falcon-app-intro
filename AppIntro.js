@@ -377,6 +377,7 @@ class AppIntro extends Component {
               [{nativeEvent: {contentOffset: {x: this.state.parallax}}}],
               { useNativeDriver: false }
             )}
+            scrollEventThrottle={16}
           >
           {pages}
         </Swiper>

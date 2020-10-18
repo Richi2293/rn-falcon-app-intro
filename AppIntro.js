@@ -374,7 +374,8 @@ class AppIntro extends Component {
               this.isScrolling = false;
             }}
             onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: this.state.parallax}}}]
+              [{nativeEvent: {contentOffset: {x: this.state.parallax}}}],
+              { useNativeDriver: false }
             )}
           >
           {pages}

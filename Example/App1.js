@@ -30,7 +30,6 @@ const windowsWidth = Dimensions.get('window').width;
 const windowsHeight = Dimensions.get('window').height;
 
 import AppIntro from 'rn-falcon-app-intro';
-// import AppIntro from './AppIntro';
 
 const styles = StyleSheet.create({
   slide: {

@@ -3,11 +3,6 @@
  */
 
 import {AppRegistry} from 'react-native';
-
-/*
-*  At moment only works example form App2
-*/
-
 // import App from './App';
 // import App from './App1';
 import App from './App2';

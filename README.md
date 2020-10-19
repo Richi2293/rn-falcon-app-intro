@@ -42,7 +42,7 @@ For React Native >=60
 $ npm i rn-falcon-app-intro --save
 ```
 
-<!-- 
+
 ### Basic Usage
 
 You can use pageArray quick generation your app intro with parallax effect. With the basic usage, the Android status bar will be updated to match your slide background color.
@@ -108,12 +108,10 @@ class Example extends Component {
 
 AppRegistry.registerComponent('Example', () => Example);
 ```
--->
+
 ### Usage
 
 If you need customized page like my Example, you can  pass in `View` component into AppIntro component and set level. Remember any need use parallax effect component, Need to be `<View level={10}></View>` inside.
-<br />
-**(At the moment the parallax effect doesn't work, maybe in the future it will be fixed)**
 
 <img src="http://i.giphy.com/26AHwds1g5HjXrd4s.gif">
 
@@ -202,7 +200,7 @@ And in Android, image inside view component, view need width、height.
 | doneBtnLabel   | string、Text element  |  Done                   | The bottom right custom Text label                                                                                                                                                                                                                                                                                                                   |
 | skipBtnLabel   | string、Text element  |  Skip                   | The bottom left custom Text label                                                                                                                                                                                                                                                                                                                  |
 | nextBtnLabel   | string、Text element   |  ›                      | The bottom left custom Text label                                                                                                                                                                                                                                                                                                                  |
-| pageArray (currently not working, don't use it)     | array    |                         | In the basic usage, you can input object array to render basic view example: ```[[{title: 'Page 1', description: 'Description 1', img: 'https://goo.gl/uwzs0C', imgStyle: {height: 80 * 2.5, width: 109 * 2.5 }, backgroundColor: '#fa931d', fontColor: '#fff', level: 10 }]``` , level is parallax effect level ,if you use pageArray you can't use custom view |
+| pageArray     | array    |                         | In the basic usage, you can input object array to render basic view example: ```[[{title: 'Page 1', description: 'Description 1', img: 'https://goo.gl/uwzs0C', imgStyle: {height: 80 * 2.5, width: 109 * 2.5 }, backgroundColor: '#fa931d', fontColor: '#fff', level: 10 }]``` , level is parallax effect level ,if you use pageArray you can't use custom view |
 | defaultIndex | number   | 0 | number of the index of the initial index |
 | showSkipButton | bool | true | a boolean defining if we should render the skip button |
 | showDoneButton | bool | true | a boolean that defines if we should render the done button |

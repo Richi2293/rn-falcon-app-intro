@@ -179,8 +179,7 @@ class AppIntro extends Component {
     ).start();
   }
   getTransform = (index, offset, level) => {
-    // const isFirstPage = index === 0;
-    var isFirstPage = true;
+    const isFirstPage = index === 0;
     const statRange = isFirstPage ? 0 : windowsWidth * (index - 1);
     const endRange = isFirstPage ? windowsWidth : windowsWidth * index;
     const startOpacity = isFirstPage ? 1 : 0;
@@ -374,9 +373,11 @@ class AppIntro extends Component {
               // this.props.onSlideChange(state.index, state.total);
               this.isScrolling = false;
             }}
-            // onScroll={Animated.event(
-            //   [{ x: this.state.parallax }]
-            // )}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: this.state.parallax}}}],
+              { useNativeDriver: false }
+            )}
+            scrollEventThrottle={16}
           >
           {pages}
         </Swiper>

@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/Richi2293/rn-falcon-app-intro#readme",
   "dependencies": {
-    "assign-deep": "^0.4.5",
+    "assign-deep": "^1.0.1",
     "prop-types": "^15.5.8",
-    "react-native-swiper": "^1.6.0-nightly.5"
+    "react-native-swiper": "^1.6.0"
   },
   "devDependencies": {
     "react-test-renderer": "16.6.3"

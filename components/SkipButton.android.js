@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Text,
-  View,
   TouchableOpacity,
   Animated
 } from 'react-native';

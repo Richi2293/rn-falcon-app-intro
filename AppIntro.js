@@ -19,7 +19,7 @@ import RenderDots from './components/Dots';
 const windowsWidth = Dimensions.get('window').width;
 const windowsHeight = Dimensions.get('window').height;
 
-const defaulStyles = {
+const defaultStyles = {
   header: {
     flex: 0.5,
     justifyContent: 'center',
@@ -130,7 +130,7 @@ class AppIntro extends Component {
   constructor(props) {
     super(props);
 
-    this.styles = StyleSheet.create(assign({}, defaulStyles, props.customStyles));
+    this.styles = StyleSheet.create(assign({}, defaultStyles, props.customStyles));
 
     this.state = {
       skipFadeOpacity: new Animated.Value(1),
@@ -343,13 +343,13 @@ class AppIntro extends Component {
   }
 
   render() {
-    const childrens = this.props.children;
+    const children = this.props.children;
     // const { pageArray } = this.props;
     let pages = [];
     // if (pageArray.length > 0) {
     //   pages = pageArray.map((page, i) => this.renderBasicSlidePage(i, page));
     // } else {
-      pages = childrens.map((children, i) => this.renderChild(children, i, i));
+      pages = children.map((children, i) => this.renderChild(children, i, i));
     // }
 
     if (this.isToTintStatusBar()) {
